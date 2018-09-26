@@ -23,7 +23,7 @@ public class Main {
         int items = 2;
         double total;
         total = pricer(items);
-        System.out.println("Amount due: $" +total);
+        System.out.printf("Amount due: $%,.2f%n",total);
     }
 
     public static double pricer(int items)
@@ -36,9 +36,8 @@ public class Main {
             }
         System.out.print("Tax rate: ");
         double rate = in.nextDouble();
-        rate=Math.round(rate * 1000 ) / 1000.0;
-        System.out.println("Tax rate in percent: "+rate*100);
-        double tax = Math.round(price * rate*100)/100;
+        System.out.printf("Tax rate in percent: %,.2f%n", rate*100);
+        double tax = price * rate;
         return (price + tax);
     }
 }
