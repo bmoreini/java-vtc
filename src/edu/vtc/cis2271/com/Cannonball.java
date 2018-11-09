@@ -66,11 +66,11 @@ import java.lang.*;
      * @param sec
      */
     public void move(double sec, double xV, double yV) {
-        double dX = xV * sec;
-        double dY = yV * sec + 0.5 * -9.81 * Math.pow(sec, 2);
-        setX(_x+dX);
-        setY(_y+dY);
-        yV = yV * sec + 0.5 * -9.81 * Math.pow(sec, 2);
+        double deltaX = xV * sec;
+        yV = yV + 0.5 * -9.81 * Math.pow(sec, 2);
+        double deltaY = yV*sec;
+        setX(_x+deltaX);
+        setY(_y+deltaY);
         set_yV(yV);
     }
 
