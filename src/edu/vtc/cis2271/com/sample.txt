@@ -1,0 +1,21 @@
+public static void main(String[] args)
+   {
+  	 File f = new File("sample.txt");
+		 long size = printFileInfo(f);
+  	 System.out.println("Call returned "+size);
+  	 int count = countLines(f);
+  	 System.out.println("File "+f+" has "+ count+" lines");
+  	 try
+	{
+	String longest = longestLine(f);
+	System.out.println("Longest line in "+f+" is \""+longest+"\"");
+	int[] lineLengths = lineLengths(f);
+	System.out.println("Lengths are "+Arrays.toString(lineLengths));
+	}
+	catch (IOException e)
+	{
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+	}
+   }
+}
