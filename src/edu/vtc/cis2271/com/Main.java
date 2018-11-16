@@ -1,21 +1,34 @@
-package edu.vtc.cis2271.com;
+package edu.vtc.cis2271;
+
+
+import java.io.File;
+import java.nio.file.Path;
+import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Book b; // sets aside memory for a book pointer
-        b = new Book("Java is fun","John Smith"); // create a book with constructor, and connect to pointer
-        String t;
-        t = b.getTitle();  // access a method inside the Book object
-        System.out.println(t);
-        Book c;
-        c = b;
-        c.setTitle("I hate Java");
-        t = b.getTitle();  // access a method inside the Book object
-        System.out.println(b.toString());
-
+        public static void main(String[] args) {
+            Scanner in = new Scanner(System.in);
+            System.out.println("Enter File Path:");
+            String filePath= in.nextLine();
+            System.out.println("Contained in "+filePath+": ");
+            File f = new File(filePath);
+            Path p = f.toPath();
+            if (f.isFile()) {
+                System.out.println(filePath+" is a file.");
+            }
+            else if (!f.isFile() && f.isDirectory())
+            {
+                System.out.println(filePath+" is a folder.");
+            }
+            else if (f.exists())
+            {
+                System.out.println(filePath+" does exist.");
+            }
+            else
+            {
+                System.out.println("Huh?"+f.getAbsolutePath());
+            }
+            in.close();
+        }
     }
-
-}
-
-// Eclipse can generate getter and setter functions
